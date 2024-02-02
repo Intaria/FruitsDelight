@@ -6,7 +6,6 @@ import com.simibubi.create.content.fluids.transfer.EmptyingRecipe;
 import com.simibubi.create.content.fluids.transfer.FillingRecipe;
 import com.simibubi.create.content.kinetics.mixer.CompactingRecipe;
 import com.simibubi.create.content.kinetics.mixer.MixingRecipe;
-import com.simibubi.create.content.kinetics.saw.CuttingRecipe;
 import com.simibubi.create.content.processing.recipe.HeatCondition;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeSerializer;
@@ -112,25 +111,6 @@ public class CreateRecipeGen {
 
 		// cut
 		{
-			cutting(FDFood.LEMON_SLICE.item.getId())
-					.withItemIngredients(Ingredient.of(FDBushes.LEMON.getFruit()))
-					.output(FDFood.LEMON_SLICE.get(), 4)
-					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
-
-			cutting(FDFood.ORANGE_SLICE.item.getId())
-					.withItemIngredients(Ingredient.of(FDTrees.ORANGE.getFruit()))
-					.output(FDFood.ORANGE_SLICE.get(), 4)
-					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
-
-			cutting(new ResourceLocation(FruitsDelight.MODID, "hamimelon_slice"))
-					.withItemIngredients(Ingredient.of(FDMelons.HAMIMELON.getMelonBlock()))
-					.output(FDMelons.HAMIMELON.getSlice(), 9)
-					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
-
-			cutting(new ResourceLocation(FruitsDelight.MODID, "pineapple_slice"))
-					.withItemIngredients(Ingredient.of(FDPineapple.PINEAPPLE.getWholeFruit()))
-					.output(FDPineapple.PINEAPPLE.getSlice(), 8)
-					.build(ConditionalRecipeWrapper.mod(pvd, Create.ID));
 
 			compacting(new ResourceLocation(FruitsDelight.MODID, "hawberry_sheet"))
 					.withItemIngredients(
@@ -189,11 +169,6 @@ public class CreateRecipeGen {
 
 	private static ProcessingRecipeBuilder<EmptyingRecipe> emptying(ResourceLocation id) {
 		ProcessingRecipeSerializer<EmptyingRecipe> ser = AllRecipeTypes.EMPTYING.getSerializer();
-		return new ProcessingRecipeBuilder<>(ser.getFactory(), id);
-	}
-
-	private static ProcessingRecipeBuilder<CuttingRecipe> cutting(ResourceLocation id) {
-		ProcessingRecipeSerializer<CuttingRecipe> ser = AllRecipeTypes.CUTTING.getSerializer();
 		return new ProcessingRecipeBuilder<>(ser.getFactory(), id);
 	}
 
