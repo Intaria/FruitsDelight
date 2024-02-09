@@ -27,6 +27,7 @@ import dev.xkmc.l2library.repack.registrate.providers.RegistrateRecipeProvider;
 import dev.xkmc.l2library.repack.registrate.util.entry.BlockEntry;
 import dev.xkmc.l2library.repack.registrate.util.entry.FluidEntry;
 import dev.xkmc.l2library.repack.registrate.util.entry.ItemEntry;
+import dev.xkmc.l2library.repack.registrate.util.entry.ItemProviderEntry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -127,7 +128,7 @@ public class CreateRecipeGen {
 	private static void fluidRecipes(RegistrateRecipeProvider pvd,
 									 BlockEntry<?> block,
 									 FluidEntry<?> fluid,
-									 ItemEntry<?> item,
+									 ItemProviderEntry<?> item,
 									 Item container) {
 
 		compacting(block.getId())
